@@ -54,7 +54,7 @@ def main():
         for file_path in files_to_delete:
             if os.path.isfile(file_path):
                 logger.info("Deleting file", extra={'file_path': file_path})
-                # os.remove(file_path)
+                os.remove(file_path)
 
         logger.info(f'{show_title}: {len(files_to_delete)} episodes deleted')
 
