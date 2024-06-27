@@ -14,11 +14,11 @@ def main():
     # Set up variables for Sonarr API
     sonarr_url = get_config('SONARR_HOST')
     sonarr_api_key = get_config('SONARR_APIKEY')
-    # headers = {'X-Api-Key': sonarr_api_key}
+    headers = {'X-Api-Key': sonarr_api_key}
 
     # Get list of shows that are set to air daily
     sonarr_daily_shows = []
-    response = requests.get(f'{sonarr_url}/api/series?apikey={sonarr_api_key}')
+    response = requests.get(f'{sonarr_url}/api/v3/series', headers=headers)
     json_data = response.json()
 
     for show in json_data:
@@ -34,7 +34,7 @@ def main():
         show_files = []
         url = f'{sonarr_url}/api/v3/episode?seriesId={show_id}&includeImages=false'
         logger.info(f'Getting episodes for seriesId {show_id}', extra={'url': url})
-        response = requests.get(f'{url}&apikey={sonarr_api_key}')
+        response = requests.get(url=url, headers=headers)
         json_data = response.json()
 
         for episode in json_data:
@@ -42,7 +42,7 @@ def main():
                 episode_id = episode['id']
                 url = f'{sonarr_url}/api/v3/episode/{episode_id}'
                 logger.info(f'Getting episode {episode_id}', extra={'url': url})
-                response = requests.get(f'{url}?apikey={sonarr_api_key}')
+                response = requests.get(url=url, headers=headers)
                 episode_data = response.json()
                 show_files.append(episode_data['episodeFile']['path'])
 
