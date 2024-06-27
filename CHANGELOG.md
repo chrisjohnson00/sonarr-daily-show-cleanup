@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.2](https://github.com/chrisjohnson00/sonarr-daily-show-cleanup/tree/v1.0.2) (2024-06-27)
+
+[Full Changelog](https://github.com/chrisjohnson00/sonarr-daily-show-cleanup/compare/v1.0.1...v1.0.2)
+
+**Fixed bugs:**
+
+- fix: updates for sonar 4 apis [\#22](https://github.com/chrisjohnson00/sonarr-daily-show-cleanup/pull/22) ([chrisjohnson00](https://github.com/chrisjohnson00))
+
 ## [v1.0.1](https://github.com/chrisjohnson00/sonarr-daily-show-cleanup/tree/v1.0.1) (2023-03-19)
 
 [Full Changelog](https://github.com/chrisjohnson00/sonarr-daily-show-cleanup/compare/v1.0.0...v1.0.1)
